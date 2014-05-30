@@ -159,7 +159,7 @@ if __name__ == '__main__':
     
     print "Convolutional MLP..."
     start_time = time.clock()    
-    norm_cov_mlp_pred = conv_mlp_train_and_predict(maxp_train_set_x,d_train_set_y,maxp_valid_set_x,d_valid_set_y,maxp_test_set_x,d_test_set_y,rng)
+    norm_cov_mlp_pred = conv_mlp_train_and_predict(d_train_set_x,d_train_set_y,d_valid_set_x,d_valid_set_y,d_test_set_x,d_test_set_y,rng)
     end_time = time.clock()    
     np.save("r_obj_pred/normal_conv_mlp.npy",norm_cov_mlp_pred)
     eval_times.append(end_time-start_time)
@@ -169,7 +169,7 @@ if __name__ == '__main__':
     
     print "DBN Using theano..."
     start_time = time.clock()
-    norm_t_dbn_pred = t_dbn_train_and_predict(maxp_train_set_x,d_train_set_y,maxp_valid_set_x,d_valid_set_y,d_test_set_x,maxp_test_set_y)
+    norm_t_dbn_pred = t_dbn_train_and_predict(d_train_set_x,d_train_set_y,d_valid_set_x,d_valid_set_y,d_test_set_x,d_test_set_y)
     end_time = time.clock()    
     np.save("r_obj_pred/normal_theano_dbn.npy",norm_t_dbn_pred)
     eval_times.append(end_time-start_time)
